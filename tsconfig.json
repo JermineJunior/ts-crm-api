@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "baseUrl" : "src",
+    "outDir" : "./dist",
+    "sourceMap" : true,
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "allowJs": true
+  },
+
+  "include" : ["/src/**/*"],
+  "exclude": ["node_modules" , "dist/*" , "src/static" ],
+  "lib" : ["es6"]
+}
