@@ -1,4 +1,4 @@
-import { createCustomer, getCustomerByEmail } from "../db/customers";
+import { createCustomer, getCustomerByEmail } from "../database/customerModel";
 export async function createCustomerController(req: any, res: any) {
   try {
     const { name, email, phone, address } = req.body;

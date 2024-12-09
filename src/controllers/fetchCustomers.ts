@@ -1,4 +1,5 @@
-import { getCustomerByEmail, getCustomers } from "../db/customers"
+import { ObjectId } from "mongodb";
+import { getCustomerByEmail, getCustomers } from "../database/customerModel"
 
 export async function fetchAllCustomers(req: any, res: any) {
   try {

@@ -7,13 +7,17 @@ const CustomerSchema = new mongoose.Schema({
   address: { type: String }
 });
 
-export const CustomerModel = mongoose.model('CustomerModel', CustomerSchema);
+export const CustomerModel = mongoose.model('Customer', CustomerSchema);
 
 //some actions on the model
+/** index */
 export const getCustomers = async () => CustomerModel.find();
-export const getCustomerByName = async (name: String) => CustomerModel.findOne({ name })
-export const getCustomerByEmail = async (email: String) => CustomerModel.findOne({ email });
+/** show*/
+export const getCustomerByEmail = async (email: String) => CustomerModel.findOne({ email: email });
+/** store */
 export const createCustomer = async (values: Record<string, any>) => new CustomerModel(values)
   .save().then((customer) => customer.toObject());
+/** update */
 export const updateCustomerById = async (id: String, values: Record<string, any>) => CustomerModel.findOneAndUpdate(id, values)
+/** delete */
 export const deleteCustomerById = async (id: String) => CustomerModel.findOneAndDelete({ _id: id });
