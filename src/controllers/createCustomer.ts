@@ -14,7 +14,10 @@ export async function createCustomerController(req: any, res: any) {
     }
     //check if the customer already exists
     const existingCustomer = await getCustomerByEmail(email);
-    if (existingCustomer) { return res.status(400).json({ message: "Customer already exists" }) }
+    if (existingCustomer) {
+      console.log(existingCustomer)
+      return res.status(400).json({ message: "Customer already exists" })
+    }
     else {
       const results = await createCustomer({ name, email, phone, address });
       console.log(results);

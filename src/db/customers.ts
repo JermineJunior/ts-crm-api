@@ -11,7 +11,8 @@ export const CustomerModel = mongoose.model('CustomerModel', CustomerSchema);
 
 //some actions on the model
 export const getCustomers = async () => CustomerModel.find();
-export const getCustomerByEmail = async (email: String) => CustomerModel.findOne({ email: email.toLocaleLowerCase });
+export const getCustomerByName = async (name: String) => CustomerModel.findOne({ name })
+export const getCustomerByEmail = async (email: String) => CustomerModel.findOne({ email });
 export const createCustomer = async (values: Record<string, any>) => new CustomerModel(values)
   .save().then((customer) => customer.toObject());
 export const updateCustomerById = async (id: String, values: Record<string, any>) => CustomerModel.findOneAndUpdate(id, values)
